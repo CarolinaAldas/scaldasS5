@@ -54,4 +54,29 @@ public partial class vPersona : ContentPage
             CargarLista();
         }
     }
+
+    private async void btnEditar_Clicked(object sender, EventArgs e)
+    {
+        var button = sender as Button;
+        var persona = button?.CommandParameter as Persona;
+
+        if (persona == null) return;
+
+        string nuevoNombre = await DisplayPromptAsync(
+            "Editar",
+            "Ingresa el nuevo nombre:",
+            "Guardar",
+            "Cancelar",
+            placeholder: persona.Name,
+            initialValue: persona.Name
+        );
+
+        if (string.IsNullOrEmpty(nuevoNombre)) return;
+
+        persona.Name = nuevoNombre;
+        _repo.UpdatePerson(persona);
+        DisplayAlert("Info", _repo.Status, "OK");
+        CargarLista();
+    }
+
 }

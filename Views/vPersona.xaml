@@ -29,27 +29,32 @@
                     Clicked="btnListar_Clicked" />
         </Grid>
 
-        <!-- Lista con botón eliminar -->
         <CollectionView x:Name="listaPersonas">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="40,*,Auto" Padding="5">
+                    <Grid ColumnDefinitions="40,*,Auto,Auto" Padding="5" ColumnSpacing="8">
                         <Label Grid.Column="0"
-                               Text="{Binding Id}"
-                               VerticalOptions="Center" />
+                       Text="{Binding Id}"
+                       VerticalOptions="Center" />
                         <Label Grid.Column="1"
-                               Text="{Binding Name}"
-                               VerticalOptions="Center" />
+                       Text="{Binding Name}"
+                       VerticalOptions="Center" />
                         <Button Grid.Column="2"
-                                Text="Eliminar"
-                                BackgroundColor="#E74C3C"
-                                TextColor="White"
-                                CommandParameter="{Binding .}"
-                                Clicked="btnEliminar_Clicked" />
+                        Text="Editar"
+                        BackgroundColor="#2ECC71"
+                        TextColor="White"
+                        Margin="0,0,4,0"
+                        CommandParameter="{Binding .}"
+                        Clicked="btnEditar_Clicked" />
+                        <Button Grid.Column="3"
+                        Text="Eliminar"
+                        BackgroundColor="#E74C3C"
+                        TextColor="White"
+                        CommandParameter="{Binding .}"
+                        Clicked="btnEliminar_Clicked" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
     </VerticalStackLayout>
 </ContentPage>

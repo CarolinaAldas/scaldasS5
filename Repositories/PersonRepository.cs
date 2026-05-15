@@ -68,5 +68,22 @@ namespace scaldasS5.Repositories
                 Status = "Error al eliminar: " + ex.Message;
             }
         }
+
+        public void UpdatePerson(Persona persona)
+        {
+            try
+            {
+                Init();
+                _conn.Update(persona);
+                Status = "Persona actualizada correctamente";
+            }
+            catch (Exception ex)
+            {
+                Status = "Error al actualizar: " + ex.Message;
+            }
+        }
+
+
+
     }
 }
